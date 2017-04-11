@@ -70,6 +70,7 @@ module BetterErrors
     end
 
     def better_errors_call(env)
+      puts "#{env["PATH_INFO"]} - better_errors middleware object_id: #{self.object_id}"
       case env["PATH_INFO"]
       when %r{/__better_errors/(?<id>.+?)/(?<method>\w+)\z}
         internal_call env, $~
